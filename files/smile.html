@@ -8,7 +8,7 @@
   <title>นัดยิ้ม</title>
 
 
-  <script src="http://kittinan.github.io/files/js/face-api.min.js"></script>
+  <script src="https://kittinan.github.io/files/js/face-api.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -175,9 +175,9 @@
   async function run() {
 
     if (!isFaceDetectionModelLoaded()) {
-      await getCurrentFaceDetectionNet().load('http://kittinan.github.io/files/weights/tiny_face_detector_model-weights_manifest.json')
-      await faceapi.loadFaceExpressionModel('http://kittinan.github.io/files/weights/face_expression_model-weights_manifest.json')
-      await faceapi.loadFaceLandmarkTinyModel('http://kittinan.github.io/files/weights/face_landmark_68_tiny_model-weights_manifest.json')
+      await getCurrentFaceDetectionNet().load('https://kittinan.github.io/files/weights/tiny_face_detector_model-weights_manifest.json')
+      await faceapi.loadFaceExpressionModel('https://kittinan.github.io/files/weights/face_expression_model-weights_manifest.json')
+      await faceapi.loadFaceLandmarkTinyModel('https://kittinan.github.io/files/weights/face_landmark_68_tiny_model-weights_manifest.json')
 
     }
     const stream = await navigator.mediaDevices.getUserMedia({
