@@ -20,13 +20,6 @@
       position: absolute;
       top: 0;
       left: 0;
-    }
-
-    #inputVideo {
-      max-width: 100%;
-    }
-
-    #overlay {
       max-width: 100%;
     }
 
@@ -103,6 +96,7 @@
   let face_type_expressions = ["angry", "disgusted", "fearful", "happy", "neutral", "sad", "surprised"]
   let forwardTimes = []
   let currentScore = 0;
+  let isReady = false;
 
   function getCurrentFaceDetectionNet() {
 
@@ -122,8 +116,13 @@
   }
 
   async function onPlay() {
-    $('#loader').hide()
-    $('#game-container').show();
+
+    if (!isReady) {
+      $('#loader').hide()
+      $('#game-container').show();
+      isReady = true;
+    }
+
     const videoEl = $('#inputVideo').get(0)
 
     let inputSize = 512
@@ -144,15 +143,13 @@
 
     updateTimeStats(Date.now() - ts)
 
+    const canvas = document.getElementById('overlay')
+
     if (result) {
-      const canvas = $('#overlay').get(0)
+      
       const dims = faceapi.matchDimensions(canvas, videoEl, true)
 
       const resizedResult = faceapi.resizeResults(result, dims)
-      //console.log(resizedResult.landmarks.getMouth())
-      const minConfidence = 0.5
-      //faceapi.draw.drawFaceExpressions(canvas, resizedResult, minConfidence)
-      //faceapi.draw.drawFaceLandmarks(canvas, resizedResult)
 
       let option = new faceapi.draw.DrawFaceLandmarksOptions({
         drawLines: true,
@@ -167,6 +164,9 @@
         currentScore += 1;
         $('#score').text(currentScore)
       }
+    } else {
+      const context = canvas.getContext('2d');
+      context.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     setTimeout(() => onPlay())
@@ -185,12 +185,7 @@
     })
     const videoEl = $('#inputVideo').get(0)
     videoEl.srcObject = stream
-    
-
-
   }
-
-  function updateResults() {}
 
   $(document).ready(function () {
     run()
