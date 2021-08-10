@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import { Menu, Breadcrumb } from 'antd'
+import profilePic from '../public/images/kittinan.png'
 
 import 'antd/dist/antd.css';
 
@@ -34,7 +34,7 @@ export default function Layout({ children, home }) {
 
           {home ? (
             <>
-              <Image
+              <img
                 priority
                 src="/images/kittinan.png"
                 className={utilStyles.borderCircle}
@@ -48,7 +48,7 @@ export default function Layout({ children, home }) {
             <>
               <Link href="/">
                 <a>
-                  <Image
+                  <img
                     priority
                     src="/images/kittinan.png"
                     className={utilStyles.borderCircle}
