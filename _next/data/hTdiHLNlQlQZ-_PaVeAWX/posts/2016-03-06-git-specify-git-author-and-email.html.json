@@ -1,0 +1,1 @@
+{"pageProps":{"postData":{"id":"2016-03-06-git-specify-git-author-and-email.html","contentHtml":"<p>go to your project path  </p>\n<blockquote>\n<p>git config user.name \"YOUR_NAME_ON_PROJECT\"<br>\ngit config user.email \"YOUR_EMAIL_ON_PROJECT\"</p>\n</blockquote>\n<p>Done.</p>\n","title":"[GIT] Specify git author and email","date":"2016-03-06 18:36:00"}},"__N_SSG":true}

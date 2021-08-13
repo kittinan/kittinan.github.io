@@ -1,0 +1,1 @@
+{"pageProps":{"postData":{"id":"2016-02-15-raspberry-pi-fix-screen-blank-when-idle.html","contentHtml":"<p>run this command as root  </p>\n<blockquote>\n<p>echo -ne \"\\033[9;0]\" >/dev/tty1</p>\n</blockquote>\n","title":"Raspberry Pi fix screen blank when idle a few minute","date":"2016-02-15 21:20:00"}},"__N_SSG":true}

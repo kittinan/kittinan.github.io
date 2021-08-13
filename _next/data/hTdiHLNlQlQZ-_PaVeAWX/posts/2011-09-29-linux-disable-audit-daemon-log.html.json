@@ -1,0 +1,1 @@
+{"pageProps":{"postData":{"id":"2011-09-29-linux-disable-audit-daemon-log.html","contentHtml":"<p>auditd -s disable  </p>\n<p>rm -rf /var/log/audit/  </p>\n<p>cat /dev/null > /var/log/lastlog</p>\n","title":"linux : disable audit daemon log","date":"2011-09-29 22:26:00"}},"__N_SSG":true}

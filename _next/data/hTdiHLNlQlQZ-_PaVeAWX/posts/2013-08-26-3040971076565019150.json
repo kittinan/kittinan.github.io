@@ -1,0 +1,1 @@
+{"pageProps":{"postData":{"id":"2013-08-26-3040971076565019150","contentHtml":"<p>for i in *.CR2; do dcraw -c $i | ppmtojpeg > jpeg/<code>basename $i CR2</code>jpg; echo $i done; done</p>\n","title":"Convert CR2 to JPEG","date":"2013-08-26 17:26:00"}},"__N_SSG":true}

@@ -1,0 +1,1 @@
+{"pageProps":{"postData":{"id":"2015-12-30-7049973901581843392","contentHtml":"<p>SET FOREIGN_KEY_CHECKS = 0;<br>\nTRUNCATE <em>table</em>;<br>\nSET FOREIGN_KEY_CHECKS = 1;</p>\n","title":"Mysql","date":"2015-12-30 15:17:00"}},"__N_SSG":true}

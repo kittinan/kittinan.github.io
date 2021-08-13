@@ -1,0 +1,1 @@
+{"pageProps":{"postData":{"id":"2014-09-20-rsync-ssh-custom-port.html","contentHtml":"<p>rsync -avz -e \"ssh -p $PORT\" user@remoteip:/path/to/files/ /local/path/</p>\n","title":"rsync ssh custom port","date":"2014-09-20 23:18:00"}},"__N_SSG":true}
