@@ -55,6 +55,7 @@ img {
 
 .main-profile-text {
   margin-top: 10px;
+  font-size: 24px;
 }
 
 @media (min-width: 576px) {
