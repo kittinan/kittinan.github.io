@@ -1,10 +1,13 @@
-import Head from 'next/head'
+import Head from 'next/head';
+
 import utilStyles from '../styles/utils.module.css'
 import styles from './layout.module.css'
 import Link from 'next/link'
-import { Menu, Breadcrumb } from 'antd'
+import { Menu, Breadcrumb, Avatar } from 'antd'
 import profilePic from '../public/images/kittinan.png'
 import { useRouter } from 'next/router';
+
+import Breadcrumbs from 'nextjs-breadcrumbs'
 
 import { Layout as AntLayout } from 'antd';
 
@@ -24,10 +27,14 @@ function useIsClient() {
 
 const { Header, Footer, Sider, Content } = AntLayout;
 
-import 'antd/dist/antd.css';
+
 
 const name = 'Kittinan'
 export const siteTitle = 'Kittinan'
+
+const Example = () => {
+  return <Breadcrumbs useDefaultStyle rootLabel='Home' />;
+};
 
 export default function Layout({ children, home }) {
 
@@ -35,90 +42,60 @@ export default function Layout({ children, home }) {
 
   return (
     <div>
-      <AntLayout className="layout">
-        <Header>
+      <Head>
 
-          <link rel="icon" href="/favicon.ico" />
-          <link rel="apple-touch-icon" sizes="72x72" href="/android-icon-72x72.png"></link>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/android-icon-72x72.png"></link>
 
-          <meta name="description" content="Kittinan" />
+        <meta name="description" content="Kittinan" />
 
-          <meta name="og:title" content={siteTitle} />
-          <meta name="twitter:card" content="summary_large_image" />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;400;700&display=swap" rel="stylesheet"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      </Head>
+      <body>
+        <AntLayout className="layout">
+          <Header className={styles.headerContainer}>
 
 
-          <div className="logo" />
+            <div className="logo" />
 
-          {useIsClient && (<Menu theme="dark" mode="horizontal">
+            {useIsClient && (<Menu mode="horizontal">
 
-            <Menu.Item key="0">
-              <span className="nav-text">Home</span>
-            </Menu.Item>
+              <Menu.Item key="home">
+                <Link href="/"><span className="nav-text">Home</span></Link>
+              </Menu.Item>
 
-          </Menu>
-          )}
+              <Menu.Item key="blog">
+                <Link href="/blog/"><span className="nav-text">Blog</span></Link>
+              </Menu.Item>
 
-        </Header>
-        <Content style={{ padding: '0 50px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            {!home && (
-              <Breadcrumb.Item>Post</Breadcrumb.Item>
+            </Menu>
             )}
 
-          </Breadcrumb>
-          <div className="site-layout-content">
+          </Header>
+          <Content>
 
-            {home ? (
-              <>
-                <img
-                  priority
-                  src="/images/kittinan.png"
-                  className={utilStyles.borderCircle}
-                  height={144}
-                  width={144}
-                  alt={name}
-                />
-                <h1 className={utilStyles.heading2Xl}>{name}</h1>
-              </>
-            ) : (
-              <>
-                <Link href="/">
-                  <a>
-                    <img
-                      priority
-                      src="/images/kittinan.png"
-                      className={utilStyles.borderCircle}
-                      height={108}
-                      width={108}
-                      alt={name}
-                    />
-                  </a>
-                </Link>
-                <h2 className={utilStyles.headingLg}>
-                  <Link href="/">
-                    <a className={utilStyles.colorInherit}>{name}</a>
-                  </Link>
-                </h2>
-              </>
-            )}
+            {/*
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              {!home && (
+                <Breadcrumb.Item>Blog</Breadcrumb.Item>
+              )}
 
-            <main>{children}</main>
+            </Breadcrumb>
+             */}
 
-
-            {!home && (
-              <div className={styles.backToHome}>
-                <Link href="/">
-                  <a>← Back to home</a>
-                </Link>
-              </div>
-            )}
-
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-      </AntLayout>
-
+            <div className="container">
+              <main>{children}</main>
+            </div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>Kittinan ©2021</Footer>
+        </AntLayout>
+      </body>
     </div >
   )
 }

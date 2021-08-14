@@ -23,7 +23,7 @@ date: '2020-04-11 18:38:00'
 Request:  
   
 
-```
+```json
 {"deviceId":"XXXXXXXXXX"}
 ```
   
@@ -32,9 +32,11 @@ Request:
 Response:  
   
 
-```
-{"userId":"XXXXXXXXXX","anonymousId":"XXXXXXXXXX"}  
-
+```json
+{
+  "userId":"XXXXXXXXXX",
+  "anonymousId":"XXXXXXXXXX"
+}  
 ```
   
 **2. /userdata**  
@@ -44,9 +46,21 @@ Response:
 Request:  
   
 
-```
-{"data":{"questionaire":{"one_uri_symp":["none"],"travel_risk_country":false,"covid19_contact":["none"],"int_contact":false}}}  
-
+```json
+{
+   "data":{
+      "questionaire":{
+         "one_uri_symp":[
+            "none"
+         ],
+         "travel_risk_country":false,
+         "covid19_contact":[
+            "none"
+         ],
+         "int_contact":false
+      }
+   }
+} 
 ```
   
 **3. /qr**  
@@ -61,9 +75,36 @@ Request:
 Request:  
   
 
-```
-{"locations":[{"is_moving":false,"uuid":"XXXX","timestamp":"2020-04-11T10:50:50.482Z","odometer":0,"coords":{"latitude":13,"longitude":100,"accuracy":25.9,"speed":-1,"heading":-1,"altitude":-23.5},"activity":{"type":"still","confidence":100},"battery":{"is_charging":true,"level":0.38},"extras":{"triggerType":"appState"}}]}  
-
+```json
+{
+   "locations":[
+      {
+         "is_moving":false,
+         "uuid":"XXXX",
+         "timestamp":"2020-04-11T10:50:50.482Z",
+         "odometer":0,
+         "coords":{
+            "latitude":13,
+            "longitude":100,
+            "accuracy":25.9,
+            "speed":-1,
+            "heading":-1,
+            "altitude":-23.5
+         },
+         "activity":{
+            "type":"still",
+            "confidence":100
+         },
+         "battery":{
+            "is_charging":true,
+            "level":0.38
+         },
+         "extras":{
+            "triggerType":"appState"
+         }
+      }
+   ]
+}  
 ```
   
   
@@ -72,9 +113,20 @@ Request:
 หากพบ device อื่นๆผ่าน Bluetooth  หรือการ scan QRCode ก็จะส่ง API อันนี้  
   
 
-```
-{"meetId":"XXXX","timestamp":"2020-04-11T11:06:53.777Z","meetWithIds":["XXXX"],"location":{"latitude":13,"longitude":100,"accuracy":24.2},"type":"bluetooth"}  
-
+```json
+{
+   "meetId":"XXXX",
+   "timestamp":"2020-04-11T11:06:53.777Z",
+   "meetWithIds":[
+      "XXXX"
+   ],
+   "location":{
+      "latitude":13,
+      "longitude":100,
+      "accuracy":24.2
+   },
+   "type":"bluetooth"
+} 
 ```
   
 **6. https://raw.githubusercontent.com/codeforpublic/morchana-core/master/available**  

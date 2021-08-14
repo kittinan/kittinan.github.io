@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
 import { Button } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
+
+import { Avatar } from 'antd';
 
 export default function Home({ allPostsData }) {
   return (
@@ -13,29 +14,16 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>
+
+      <section class="main-profile">
+
+        <div><Avatar size={125} src="/images/kittinan.png" /></div>
+        <p class="main-profile-text">
           Hello, I’m <strong>Kittinan</strong>.
         </p>
 
       </section>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
     </Layout >
   )
 }
