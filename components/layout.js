@@ -13,6 +13,10 @@ import { Layout as AntLayout } from 'antd';
 
 import { React, useState, useEffect } from "react";
 
+import { GithubOutlined, HeartFilled } from '@ant-design/icons';
+
+<GithubOutlined />
+
 //const useEnhancedEffect = typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
 
 function useIsClient() {
@@ -93,7 +97,7 @@ export default function Layout({ children, home }) {
               <main>{children}</main>
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Kittinan ©2021</Footer>
+          <Footer style={{ textAlign: 'center' }}>Made with <HeartFilled style={{ color: 'red' }} /> by Kittinan | <GithubOutlined />  <a href="https://github.com/kittinan/kittinan.github.io" target="_BLANK">kittinan.github.io</a></Footer>
         </AntLayout>
       </body>
     </div >
