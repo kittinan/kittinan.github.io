@@ -1,1 +1,0 @@
-{"pageProps":{"postData":{"id":"2015-06-03-7011959756278717173","contentHtml":"<pre><code>restorecon -R /var/lib/mysql/\n</code></pre>\n<pre><code>  \n\n</code></pre>\n<pre><code>  \n\n</code></pre>\n<pre><code></code></pre>\n<p>setsebool -P httpd_unified 1</p>\n<pre><code></code></pre>\n","title":"","date":"2015-06-03 15:41:00"}},"__N_SSG":true}
