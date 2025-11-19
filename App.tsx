@@ -365,31 +365,31 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div 
-      className={`h-screen bg-[#050505] ${theme.text} font-mono p-4 md:p-6 relative overflow-hidden flex flex-col transition-colors duration-500`}
+    <div
+      className={`h-screen w-full max-w-full bg-[#050505] ${theme.text} font-mono p-4 md:p-6 relative overflow-hidden overflow-x-hidden flex flex-col transition-colors duration-500`}
       onClick={handleContainerClick}
     >
       <Scanline />
       
       {/* Header / Top Bar */}
-      <div className={`flex justify-between items-center mb-4 border-b-2 ${theme.border} pb-2 z-10 sticky top-0 bg-[#050505]/95 backdrop-blur transition-colors duration-500`}>
-        <div className="flex items-center gap-2">
-          <span className={`font-bold tracking-wider glow-text text-lg ${theme.glow}`}>KITTINAN_SRITHAWORN</span>
+      <div className={`flex justify-between items-center gap-2 mb-4 border-b-2 ${theme.border} pb-2 z-10 sticky top-0 bg-[#050505]/95 backdrop-blur transition-colors duration-500 max-w-full`}>
+        <div className="flex items-center gap-2 min-w-0 flex-shrink">
+          <span className={`font-bold tracking-wider glow-text text-sm md:text-lg ${theme.glow} truncate`}>KITTINAN_SRITHAWORN</span>
         </div>
-        <div className={`flex items-center gap-4 text-xs md:text-sm font-bold opacity-80`}>
+        <div className={`flex items-center gap-2 md:gap-4 text-xs md:text-sm font-bold opacity-80 flex-shrink-0`}>
            <div className="hidden md:block">[SYS: ONLINE]</div>
            <div className="hidden md:block">[NET: SECURE]</div>
-           <div>[LOC: TH]</div>
+           <div className="whitespace-nowrap">[LOC: TH]</div>
         </div>
       </div>
 
       {/* Terminal Output Area */}
-      <div className="flex-1 z-10 overflow-y-auto pb-20">
+      <div className="flex-1 z-10 overflow-y-auto overflow-x-hidden pb-20 max-w-full">
         {history.map((line) => (
-          <div key={line.id} className="mb-1 break-words">
-            <div className="flex gap-3">
-              <span className="text-gray-600 shrink-0 select-none text-xs pt-1">[{line.timestamp}]</span>
-              <div className="w-full">
+          <div key={line.id} className="mb-1 break-words max-w-full">
+            <div className="flex gap-3 max-w-full">
+              <span className="text-gray-600 shrink-0 select-none text-xs pt-1 hidden md:inline">[{line.timestamp}]</span>
+              <div className="w-full min-w-0 overflow-hidden">
                 {line.type === LineType.Input ? (
                    <span className={`font-bold text-white`}>{line.content}</span>
                 ) : line.type === LineType.Error ? (
@@ -408,22 +408,22 @@ const App: React.FC = () => {
 
       {/* Input Area */}
       {!isBooting && (
-        <div className="z-20 sticky bottom-0 bg-[#050505] pt-2 pb-6">
-          <div className={`flex items-center gap-2 text-lg border-t ${theme.border} pt-2 transition-colors duration-500`}>
-            <span className={`${theme.glow} font-bold select-none text-nowrap`}>visitor@kittinan:~$</span>
+        <div className="z-20 sticky bottom-0 bg-[#050505] pt-2 pb-6 max-w-full">
+          <div className={`flex items-center gap-2 text-base md:text-lg border-t ${theme.border} pt-2 transition-colors duration-500 max-w-full`}>
+            <span className={`${theme.glow} font-bold select-none whitespace-nowrap text-sm md:text-base flex-shrink-0`}>visitor@kittinan:~$</span>
             <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className={`bg-transparent border-none outline-none flex-1 ${theme.text} ${theme.placeholder} ${theme.caret}`}
+              className={`bg-transparent border-none outline-none flex-1 min-w-0 ${theme.text} ${theme.placeholder} ${theme.caret}`}
               placeholder=""
               autoComplete="off"
               autoFocus
               disabled={isProcessing}
             />
-            {isProcessing && <span className="animate-spin ml-2">|</span>}
+            {isProcessing && <span className="animate-spin ml-2 flex-shrink-0">|</span>}
           </div>
         </div>
       )}
