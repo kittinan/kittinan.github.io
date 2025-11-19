@@ -1,23 +1,23 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "kittinan-srithaworn---terminal-portfolio",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "antd": "^4.16.11",
-    "date-fns": "^2.11.1",
-    "glob": "^7.1.7",
-    "gray-matter": "^4.0.2",
-    "next": "^11.0.2-canary.28",
-    "next-optimized-images": "^2.6.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "remark": "^12.0.0",
-    "remark-html": "^12.0.0"
+    "react-dom": "^19.2.0",
+    "@google/genai": "^1.30.0",
+    "react": "^19.2.0",
+    "lucide-react": "^0.554.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
   }
 }

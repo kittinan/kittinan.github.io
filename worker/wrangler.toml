@@ -1,0 +1,12 @@
+name = "kittinan-portfolio-worker"
+main = "index.ts"
+compatibility_date = "2024-11-19"
+account_id = "4651a188d203f04806e635ea59b4be25"
+
+[vars]
+# Environment variables will be set via wrangler secret put API_KEY
+
+# Uncomment and configure if you want to use a custom domain
+# routes = [
+#   { pattern = "api.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
